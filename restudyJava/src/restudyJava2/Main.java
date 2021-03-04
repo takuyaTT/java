@@ -3,24 +3,51 @@ package restudyJava2;
 public class Main {
 
 	public static void main(String[] args) {
-		Sample1 samp1_none = new Sample1();
-		Sample1 samp1 = new Sample1("taro",15);
+		ParentClass parent_none = new ParentClass();
+		ParentClass parent = new ParentClass("taro",15);
 
 		System.out.println("----指定なし----");
-		samp1_none.printInfo();
+		parent_none.printInfo();
+    
 		System.out.println("----指定あり----");
-		samp1.printInfo();
-
+		parent.printInfo();
+    
 		System.out.println("----継承_指定なし----");
-		Sample2 sample2_none = new Sample2();
-		sample2_none.printInfo();
-		sample2_none.showName();
+		ChildClass child_none = new ChildClass();
+		child_none.printInfo();
+		child_none.showName();
 
 		System.out.println("----継承_指定あり----");
-		Sample2 sample2 = new Sample2("hanako",18,"sample2");
-		sample2.printInfo();
-		sample2.showName();
+		ChildClass child = new ChildClass("hanako",18,"sample2");
+		child.printInfo();
+		child.showName();
 
+    /*
+    System.out.println("----継承 子 = 親 ----");
+    サブクラスのデータ型でスーパークラスのインスタンスはキャストしないとできない
+    NG
+    ChildClass child_parent = new ParentClass();
+    OK
+    ParentClass pc = new ParentClass();
+    ChildClass child_parent = (ChildClass)pc;
+    */
+
+    System.out.println("----継承 親 = 子----");
+    // スーパークラス型の変数にサブクラスのインスタンスはできる
+    ParentClass child_parent = new ChildClass();
+    child_parent.printInfo();
+    if(child_parent instanceof ParentClass){
+      System.out.println("スーパークラス型です");
+    }else {
+      System.out.println("違う型です");
+    }
+
+    // インターフェイス実装済みクラス
+    System.out.println("----インターフェイス----");
+    ImplementsClass impClass = new ImplementsClass("Saburo",20);
+    impClass.interMethod();
+    System.out.println("名前 : " + impClass.returnName());
+    System.out.println("年齢 : " + impClass.returnAge());
 	}
 
 }

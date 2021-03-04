@@ -1,17 +1,17 @@
 package restudyJava2;
 
-public class Sample1 {
+public class ParentClass {
 	// フィールド
 	String name;
 	int age;
 
 	// コンストラクタ
-	Sample1(){
+	ParentClass(){
 		this.name = "未定義";
 		this.age = 999;
 	}
 
-	Sample1(String name, int age){
+	ParentClass(String name, int age){
 		this.name = name;
 		this.age = age;
 	}
