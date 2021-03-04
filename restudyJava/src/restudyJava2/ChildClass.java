@@ -1,13 +1,13 @@
 package restudyJava2;
 
-public class Sample2 extends Sample1 {
+public class ChildClass extends ParentClass {
 	String extendsType;
 
-	Sample2(){
+	ChildClass(){
 		super();
 	}
 
-	Sample2(String name, int age, String extendsType){
+	ChildClass(String name, int age, String extendsType){
 		this.name = name;
 		this.age = age;
 		this.extendsType = extendsType;
